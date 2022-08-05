@@ -76,6 +76,17 @@ function game () {
         finalMessage("me","you", computerCount,playerCount);
     }
 
-
+    askPlayer();
     }
-game();
+    let noPlayMessage = () => console.log("Alright then we don't play")
+
+function askPlayer () {
+    let question = prompt("Do you want to play rock paper scissors?").toLowerCase();
+    if (question === "yes") {
+        game();
+    } else {
+        noPlayMessage();
+    } 
+}
+
+askPlayer();
