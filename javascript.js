@@ -4,9 +4,9 @@ const rockBtn = document.querySelector('.rock');
 const paperBtn = document.querySelector('.paper');
 const scissorsBtn = document.querySelector('.scissors');
 
-rockBtn.addEventListener('click',playRound("rock",getComputerChoice()));
-paperBtn.addEventListener('click',playRound("paper",getComputerChoice()));
-scissorsBtn.addEventListener('click',playRound("scissors",getComputerChoice()));
+rockBtn.addEventListener('click', () => {playRound("rock",getComputerChoice())});
+paperBtn.addEventListener('click', () => {playRound("paper",getComputerChoice())});
+scissorsBtn.addEventListener('click', () => {playRound("scissors",getComputerChoice())});
 
 function getComputerChoice () {
      //We need the computer to get a number from 0 - 2//
