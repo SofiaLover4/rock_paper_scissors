@@ -1,5 +1,6 @@
 body {
    background-color: antiquewhite;
+   font-family: Verdana, sans-serif;
 }
 
 .cards {
@@ -16,5 +17,16 @@ body {
    height: 80px;
    width: 150px;
    margin: 0px 30px;
+}
+
+.results {
+   background-color: rgb(232, 182, 141);
+   text-align: center;
+   padding: 15px 0;
+}
+.scores {
+   display: flex;
+   justify-content: center;
+   gap: 20px;
 }
 

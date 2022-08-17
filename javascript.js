@@ -1,12 +1,33 @@
 let computerChoice = null;
+let playerScore = 0;
+let computerScore = 0;
+let gameRounds = 1;
 
 const rockBtn = document.querySelector('.rock');
 const paperBtn = document.querySelector('.paper');
 const scissorsBtn = document.querySelector('.scissors');
+const result = document.querySelector('.result');
+const yourScore = document.querySelector('.Your_Score');
+const rounds = document.querySelector('.Rounds');
+const myScore = document.querySelector('.My_Score');
 
-rockBtn.addEventListener('click', () => {playRound("rock",getComputerChoice())});
-paperBtn.addEventListener('click', () => {playRound("paper",getComputerChoice())});
-scissorsBtn.addEventListener('click', () => {playRound("scissors",getComputerChoice())});
+rockBtn.addEventListener('click', () => {
+    playRound("rock",getComputerChoice())
+});
+paperBtn.addEventListener('click', () => {
+    playRound("paper",getComputerChoice())
+});
+scissorsBtn.addEventListener('click', () => {
+    playRound("scissors",getComputerChoice())
+});
+
+function displayStats (){
+    yourScore.textContent = `Your score is ${playerScore}`;
+    rounds.textContent = `Round: ${gameRounds}`;
+    myScore.textContent = `My Score is ${computerScore}`;
+}
+
+displayStats();
 
 function getComputerChoice () {
      //We need the computer to get a number from 0 - 2//
@@ -27,72 +48,33 @@ function getComputerChoice () {
 
 function playRound (playerSelection,computerSelection) {
     //I need a win message//
-    let winMessage = () => console.log(`Congratulations, you beat me! It's true, ${playerSelection} does beat ${computerSelection}!`);
+    let winMessage = () => result.textContent = `Congratulations, you beat me! It's true, ${playerSelection} does beat ${computerSelection}!`;
     //I need a lose message with why I lost//
-    let loseMessage = () => console.log(`You lose, ${computerSelection} beats ${playerSelection}!`);
+    let loseMessage = () => result.textContent = `You lose, ${computerSelection} beats ${playerSelection}!`;
     //Can't forget the tie message//
-    let tieMessage = () => console.log("It's a tie, I guess none of us win");
+    let tieMessage = () => result.textContent = "It's a tie, I guess none of us win. We won't count this round.";
     //Capitalization cannot effect the outcome//
     playerSelection = playerSelection.toLowerCase();
     //A message in case the word is not any of the possible words//
-    let errorMessage = () => console.log("Hey! That's not a word you can use in this game!")
+    let errorMessage = () => result.textContent = "Hey! That's not a word you can use in this game!";
     //Return the user a message if they word they put is not in the game//
     if (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {  
         errorMessage();
-        roundStatus = null;
     //All the outcomes for the game//
     } else if (playerSelection === computerSelection) {
         tieMessage(); 
-        roundStatus = null;
     } else if (playerSelection === "scissors" && computerSelection === "paper" || playerSelection === "paper" && computerSelection === "rock" ||playerSelection === "rock" && computerSelection === "scissors") {
         winMessage();
-        roundStatus = true;
+        playerScore++;
+        gameRounds++;
+        displayStats();
     } else if (playerSelection === "paper" && computerSelection === "scissors" || playerSelection === "scissors" && computerSelection === "rock" || playerSelection === "rock" && computerSelection === "paper") {
         loseMessage();
-        roundStatus = false;
+        computerScore++;
+        gameRounds++;
+        displayStats();
     }
    
 }
 
-let finalMessage = (finalWinner,finalLoser,winnerScore,loserScore) => console.log(`And the winner is ${finalWinner} with ${winnerScore} games won. The loser is ${finalLoser} with ${loserScore} games won.`)
-
-
-function game () {
-    let playerCount = 0;
-    let computerCount = 0;
-    for (let i = 0; i < 5; i++){
-        computerSelection = getComputerChoice();
-        playerSelection = prompt("Rock, paper, scissors, shoot!")
-        playRound(playerSelection,computerSelection);
-        if (roundStatus === true){
-            playerCount++;
-            rounds++;
-        } else if (roundStatus === false) {
-            computerCount++; 
-            rounds++;
-        }else if (roundStatus === null){
-            console.log("Hmmm, let's not count this round then.")
-        }
-        console.log(`Round: ${rounds}`);
-        console.log(`Your score: ${playerCount}`);
-        console.log(`Opponent's score: ${computerCount}`);
-    }
-    if (playerCount > computerCount){
-        finalMessage("you","me",playerCount,computerCount);
-    }else {
-        finalMessage("me","you", computerCount,playerCount);
-    }
-
-    askPlayer();
-    }
-    let noPlayMessage = () => console.log("Alright then we don't play")
-
-function askPlayer () {
-    let question = prompt("Do you want to play rock paper scissors?").toLowerCase();
-    if (question === "yes") {
-        game();
-    } else {
-        noPlayMessage();
-    } 
-}
 
