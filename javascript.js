@@ -2,6 +2,7 @@ let computerChoice = null;
 let playerScore = 0;
 let computerScore = 0;
 let gameRounds = 1;
+let winnerMessage = (winner,loser) => matchWinner.textContent =`${winner} have won the match on round ${gameRounds - 1}. ${loser} have lost the match. `;
 
 const rockBtn = document.querySelector('.rock');
 const paperBtn = document.querySelector('.paper');
@@ -9,22 +10,17 @@ const scissorsBtn = document.querySelector('.scissors');
 const result = document.querySelector('.result');
 const yourScore = document.querySelector('.Your_Score');
 const rounds = document.querySelector('.Rounds');
-const myScore = document.querySelector('.My_Score');
+const enemyScore = document.querySelector('.Computer_Score');
+const matchWinner = document.querySelector('.winner');
 
-rockBtn.addEventListener('click', () => {
-    playRound("rock",getComputerChoice())
-});
-paperBtn.addEventListener('click', () => {
-    playRound("paper",getComputerChoice())
-});
-scissorsBtn.addEventListener('click', () => {
-    playRound("scissors",getComputerChoice())
-});
+rockBtn.addEventListener('click',playRoundRock);
+paperBtn.addEventListener('click',playRoundPaper);
+scissorsBtn.addEventListener('click', playRoundScissors);
 
 function displayStats (){
     yourScore.textContent = `Your score is ${playerScore}`;
     rounds.textContent = `Round: ${gameRounds}`;
-    myScore.textContent = `My Score is ${computerScore}`;
+    enemyScore.textContent = `Computer score is ${computerScore}`;
 }
 
 displayStats();
@@ -68,13 +64,41 @@ function playRound (playerSelection,computerSelection) {
         playerScore++;
         gameRounds++;
         displayStats();
+        checkWinner();
     } else if (playerSelection === "paper" && computerSelection === "scissors" || playerSelection === "scissors" && computerSelection === "rock" || playerSelection === "rock" && computerSelection === "paper") {
         loseMessage();
         computerScore++;
         gameRounds++;
         displayStats();
+        checkWinner();
     }
    
 }
 
+function playRoundRock () {
+    playRound("rock",getComputerChoice())
+}
 
+function playRoundPaper () {
+    playRound("paper",getComputerChoice())
+}
+
+function playRoundScissors (){
+    playRound("scissors",getComputerChoice())
+}
+
+function checkWinner () {
+    if(playerScore === 5) {
+        winnerMessage("You","I");
+        endGame();
+    } else if (computerScore === 5) {
+        winnerMessage("I", "you")
+        endGame();
+    }
+}
+
+function endGame (){
+    rockBtn.removeEventListener('click', playRoundRock);
+    paperBtn.removeEventListener('click', playRoundPaper);
+    scissorsBtn.removeEventListener('click', playRoundScissors);
+}
