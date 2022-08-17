@@ -1,0 +1,19 @@
+body {
+   background-color: antiquewhite;
+}
+
+.cards {
+   display: flex;
+   background-color: rgb(205, 160, 115);
+   padding: 40px 20px;
+   max-height: 80px;
+   justify-content: center;
+   align-content: center;
+}
+
+.cards button {
+   font-family: Verdana, sans-serif;
+   height: 80px;
+   width: 150px;
+   margin: 0px 30px;
+}
