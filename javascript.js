@@ -50,10 +50,9 @@ let finalMessage = (finalWinner,finalLoser,winnerScore,loserScore) => console.lo
 
 
 function game () {
-    let rounds = 0;
     let playerCount = 0;
     let computerCount = 0;
-    for (let i = 0; rounds < 5; i++){
+    for (let i = 0; i < 5; i++){
         computerSelection = getComputerChoice();
         playerSelection = prompt("Rock, paper, scissors, shoot!")
         playRound(playerSelection,computerSelection);
