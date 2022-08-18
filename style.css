@@ -10,31 +10,64 @@ body {
    display: flex;
    background-color: rgb(205, 160, 115);
    padding: 40px 20px;
-   max-height: 80px;
+   max-height: 180px;
    justify-content: center;
    align-content: center;
+   width: 100%;
+   max-width: 1500px;
+   margin-top: 150px;
+   gap: 40px;
+}
+
+.start_btn{
+   background-color:rgb(239, 223, 206);
+   box-shadow: 0px 0px 160px rgb(229, 138, 102);
+   border-style: dashed;
+   border-color: brown;
+   margin-top: 200px;
+   font-size: 20px;
+}
+
+.winner,
+.result {
+   font-size: 20px;
+   color: rgb(189, 83, 26);
 }
 
 button {
    font-family: Verdana, sans-serif;
+   border-radius: 15px;
+   border-style: none;
+   color: rgb(189, 83, 26);
+   box-shadow: 0px 0px 80px rgb(229, 138, 102);
 }
 
 .cards button {
-   height: 80px;
-   width: 150px;
+   height: 150px;
+   width: 300px;
    margin: 0px 30px;
+   background-color: bisque;
+   font-size: 32px;
 }
 
 .results {
    background-color: rgb(232, 182, 141);
    text-align: center;
    padding: 15px 0;
-   width: 800px;
+   margin: 0;
+   width: 110%;
+}
+
+h5 {
+   font-size: 28px;
+   color: rgb(189, 83, 26);
 }
 .scores {
    display: flex;
    justify-content: center;
    gap: 20px;
+   font-size: 24px;
+   color: rgb(189, 83, 26);
 }
 
 .start_btn {
@@ -44,12 +77,14 @@ button {
 
 .endContent {
    display: flex;
-   gap: 20px
+   gap: 50px
 }
 
 .endContent button {
    height: 100px;
    width: 200px;
+   margin-top: 40px;
+   background-color: bisque;
 }
 
 .game {
