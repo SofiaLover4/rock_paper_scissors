@@ -7,15 +7,19 @@ let winnerMessage = (winner,loser) => matchWinner.textContent =`${winner} have w
 const rockBtn = document.querySelector('.rock');
 const paperBtn = document.querySelector('.paper');
 const scissorsBtn = document.querySelector('.scissors');
+const results = document.querySelector('.results');
+const cards = document.querySelector('.cards');
 const result = document.querySelector('.result');
 const yourScore = document.querySelector('.Your_Score');
 const rounds = document.querySelector('.Rounds');
 const enemyScore = document.querySelector('.Computer_Score');
 const matchWinner = document.querySelector('.winner');
+const startBtn = document.querySelector('.start_btn');
 
 rockBtn.addEventListener('click',playRoundRock);
 paperBtn.addEventListener('click',playRoundPaper);
 scissorsBtn.addEventListener('click', playRoundScissors);
+startBtn.addEventListener('click',startGame);
 
 function displayStats (){
     yourScore.textContent = `Your score is ${playerScore}`;
@@ -83,8 +87,17 @@ function playRoundPaper () {
     playRound("paper",getComputerChoice())
 }
 
-function playRoundScissors (){
+function playRoundScissors () {
     playRound("scissors",getComputerChoice())
+}
+
+function startGame () {
+    rockBtn.classList.toggle('game');
+    paperBtn.classList.toggle('game');
+    scissorsBtn.classList.toggle('game');
+    results.classList.toggle('game');
+    cards.classList.toggle('game');
+    startBtn.classList.toggle('game');
 }
 
 function checkWinner () {
