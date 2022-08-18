@@ -84,7 +84,7 @@ function checkWinner () {
         winnerMessage("You","I");
         endGame();
     } else if (computerScore === 5) {
-        winnerMessage("I", "you")
+        winnerMessage("I", "You")
         endGame();
     }
 }
