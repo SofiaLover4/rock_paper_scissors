@@ -15,8 +15,11 @@ body {
    align-content: center;
 }
 
-.cards button {
+button {
    font-family: Verdana, sans-serif;
+}
+
+.cards button {
    height: 80px;
    width: 150px;
    margin: 0px 30px;
@@ -37,6 +40,16 @@ body {
 .start_btn {
    height: 150px;
    width: 300px;
+}
+
+.endContent {
+   display: flex;
+   gap: 20px
+}
+
+.endContent button {
+   height: 100px;
+   width: 200px;
 }
 
 .game {
