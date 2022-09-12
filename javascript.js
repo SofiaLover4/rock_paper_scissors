@@ -4,6 +4,7 @@ let computerScore = 0;
 let gameRounds = 1;
 let winnerMessage = (winner,loser) => matchWinner.textContent =`${winner} have won the match on round ${gameRounds - 1}. ${loser} have lost the match. `;
 
+//All the "things" that are changing in the game//
 const rockBtn = document.querySelector('.rock');
 const paperBtn = document.querySelector('.paper');
 const scissorsBtn = document.querySelector('.scissors');
@@ -19,6 +20,7 @@ const endContent = document.querySelector('.endContent');
 const exitBtn = document.querySelector('.exitBtn');
 const resetBtn = document.querySelector('.resetBtn');
 
+//Event listeners for each button//
 rockBtn.addEventListener('click',playRoundRock);
 paperBtn.addEventListener('click',playRoundPaper);
 scissorsBtn.addEventListener('click', playRoundScissors);
@@ -51,6 +53,7 @@ function getComputerChoice () {
     }  
 }
 
+//The different outcomes each button click//
 function playRoundRock () {
     playRound("rock",getComputerChoice())
 }
