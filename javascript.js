@@ -131,15 +131,8 @@ function playRound (playerSelection,computerSelection) {
     let loseMessage = () => result.textContent = `You lose, ${computerSelection} beats ${playerSelection}!`;
     //Can't forget the tie message//
     let tieMessage = () => result.textContent = "It's a tie, I guess none of us win. We won't count this round.";
-    //Capitalization cannot effect the outcome//
-    playerSelection = playerSelection.toLowerCase();
-    //A message in case the word is not any of the possible words//
-    let errorMessage = () => result.textContent = "Hey! That's not a word you can use in this game!";
-    //Return the user a message if they word they put is not in the game//
-    if (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {  
-        errorMessage();
     //All the outcomes for the game//
-    } else if (playerSelection === computerSelection) {
+    if (playerSelection === computerSelection) {
         tieMessage(); 
     } else if (playerSelection === "scissors" && computerSelection === "paper" || playerSelection === "paper" && computerSelection === "rock" ||playerSelection === "rock" && computerSelection === "scissors") {
         winMessage();
