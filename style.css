@@ -13,8 +13,7 @@ body {
    max-height: 180px;
    justify-content: center;
    align-content: center;
-   width: 100%;
-   max-width: 1500px;
+   width: 1460px;
    margin-top: 150px;
    gap: 40px;
 }
@@ -55,7 +54,7 @@ button {
    text-align: center;
    padding: 15px 0;
    margin: 0;
-   width: 110%;
+   width: 1500px;
 }
 
 h5 {
